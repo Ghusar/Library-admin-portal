@@ -1,0 +1,24 @@
+<div  class="wrapper" >
+			
+			<div id="input">
+			<p> Book list </p>
+				<lable>Search</lable>
+				<input type="text" ng-model="name"  />
+			</div>	
+			<ul>
+
+				<li  class ="data" ng-repeat="item in user|filter:name">
+					<img ng-src ="{{item.img}}.jpg" width="62px" height="62px" />
+					<span class="name">
+						{{item.Title}}<br />
+						{{item.Author}}<br />
+						{{item.status}}
+					</span>
+					<span class="options">
+						<button type="button" ng-click="issuebook(user.indexOf(item))" >Issue </button>
+						<a href ="#/edit/{{user.indexOf(item)}}" ><button type="button" >edit </button></a>
+					</span>
+					
+				</li>
+			</ul>	
+			</div>
