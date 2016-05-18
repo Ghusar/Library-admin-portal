@@ -1,12 +1,13 @@
 <div  class="wrapper" >
 			
 			<div id="input">
-			<p> Book list </p>
-				<lable>Search</lable>
+			<p id="listh"> Book list </p>
+				<lable id="search" style="color:blue;font-weight: bold ">Search</lable>
 				<input type="text" ng-model="name"  />
 			</div>	
+					<p id="errorm">{{errM}}</p>
 			<ul>
-
+					<p class="err">{{err}}</p>
 				<li  class ="data" ng-repeat="item in user|filter:name">
 					<img ng-src ="{{item.img}}.jpg" width="62px" height="62px" />
 					<span class="name">
@@ -16,9 +17,10 @@
 					</span>
 					<span class="options">
 						<button type="button" ng-click="issuebook(user.indexOf(item))" >Issue </button>
-						<a href ="#/edit/{{user.indexOf(item)}}" ><button type="button" >edit </button></a>
+						<button type="button" ng-click = "deletebook(user.indexOf(item))">delete </button></a>
+						<a href = "#/edit/{{user.indexOf(item)}}" ><button>edit </button></a>
 					</span>
-					
 				</li>
+
 			</ul>	
 			</div>
